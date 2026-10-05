@@ -855,3 +855,121 @@ ul, ol {
     font-size: 0.9rem;
   }
 }
+
+
+/* ==========================================
+   あにめセクション（サムネイル方式）
+=========================================== */
+.anime-section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.anime-subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ff5c8a;
+  margin-top: -15px;
+  margin-bottom: 25px;
+}
+
+/* 動画カードの並び（2列グリッド） */
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  justify-content: center;
+}
+
+/* ポラロイド風アニメカード */
+.anime-card {
+  background: #ffffff;
+  border: 3px solid #ffccd5;
+  border-radius: 20px;
+  padding: 15px 15px 18px 15px;
+  box-shadow: 0 8px 20px rgba(255, 143, 163, 0.25);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.anime-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* 縦長ショート動画のフレーム（アスペクト比 9:16） */
+.anime-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff0f3;
+  border: 2px solid #ffe0e9;
+}
+
+.anime-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* 中央のピンクの再生ボタン */
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  background-color: rgba(255, 71, 126, 0.9);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(255, 71, 126, 0.4);
+  border: 2px solid #ffffff;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* キャプション（タイトル） */
+.anime-caption {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ff477e;
+  text-align: center;
+}
+
+/* ホバー時のアニメーション */
+.anime-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(255, 116, 149, 0.35);
+  border-color: #ff8fa3;
+}
+
+.anime-card:hover .play-icon {
+  transform: translate(-50%, -50%) scale(1.15);
+  background-color: #ff477e;
+}
+
+.anime-card:hover .anime-frame img {
+  transform: scale(1.05);
+}
+
+/* スマホ表示対応 */
+@media (max-width: 600px) {
+  .anime-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
